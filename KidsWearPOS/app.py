@@ -182,11 +182,11 @@ def init_db():
     ''')
 
     # Insert default admin user
-    cursor.execute("SELECT COUNT(*) FROM users WHERE username='admin'")
+    cursor.execute("SELECT COUNT(*) FROM users WHERE username='Akshada2001'")
     if cursor.fetchone()[0] == 0:
         password_hash = hashlib.sha256('Akshada@123'.encode()).hexdigest()
         cursor.execute("INSERT INTO users (username, password, role) VALUES (?, ?, ?)",
-                      ('Akshada2001', password_hash, 'Akshada@123'))
+                      ('Akshada2001', password_hash, 'admin'))
 
     # Insert sample products
     cursor.execute("SELECT COUNT(*) FROM products")

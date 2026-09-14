@@ -187,11 +187,11 @@ def init_db():
         password_hash = hashlib.sha256('Akshada@123'.encode()).hexdigest()
         cursor.execute("INSERT INTO users (username, password, role) VALUES (?, ?, ?)",
                       ('Akshada2001', password_hash, 'admin'))
-conn.commit()
+    conn.commit()
 
 # Also ensure Akshada2001 user exists
-c.execute("INSERT OR IGNORE INTO users (username, password, role) VALUES (?, ?, ?)",
-          ('Akshada2001', hashlib.sha256('Akshada@123'.encode()).hexdigest(), 'Admin'))
+    cursor.execute("INSERT OR IGNORE INTO users (username, password, role) VALUES (?, ?, ?)",
+             ('Akshada2001', hashlib.sha256('Akshada@123'.encode()).hexdigest(), 'Admin'))
     # Insert sample products
     cursor.execute("SELECT COUNT(*) FROM products")
     if cursor.fetchone()[0] == 0:
